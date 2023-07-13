@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  app:
+    depends_on:
+      - postgres
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/todo:cached
+    command: sleep infinity
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=vapor_database
+      - POSTGRES_USER=vapor_username
+      - POSTGRES_PASSWORD=vapor_password
+    privileged: true
+  postgres:
+    image: "postgres"
+    environment:
+      - POSTGRES_DB=vapor_database
+      - POSTGRES_USER=vapor_username
+      - POSTGRES_PASSWORD=vapor_password
