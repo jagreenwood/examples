@@ -3,9 +3,7 @@ services:
   app:
     depends_on:
       - postgres
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: swift:5.8.1
     volumes:
       - ..:/todo:cached
     command: sleep infinity
