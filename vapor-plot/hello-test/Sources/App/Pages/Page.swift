@@ -41,10 +41,8 @@ extension Page: Renderable {
 
 extension Page: AsyncResponseEncodable {
     public func encodeResponse(for request: Request) async throws -> Response {
-        await Task {
-            let response = Response(status: .ok, body: .init(string: render(indentedBy: .spaces(4))))
-            response.headers.add(name: "Content-Type", value: "text/html; charset=utf-8")
-            return response
-        }.value
+        let response = Response(status: .ok, body: .init(string: render(indentedBy: .spaces(4))))
+        response.headers.add(name: "Content-Type", value: "text/html; charset=utf-8")
+        return response
     }
 }

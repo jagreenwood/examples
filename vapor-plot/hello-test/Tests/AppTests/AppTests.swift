@@ -17,7 +17,7 @@ final class AppTests: XCTestCase {
         measure(metrics: [XCTMemoryMetric.init(), XCTClockMetric.init()]) {
             for _ in 0...100 {
                 do {
-                    _ = try app.performTest(request: XCTHTTPRequest.make(with: .GET, path: "test-leaf"))
+                    _ = try app.performTest(request: XCTHTTPRequest.make(with: .GET, path: "hello-leaf"))
                 } catch {
                     XCTFail(error.localizedDescription)
                 }
@@ -29,7 +29,7 @@ final class AppTests: XCTestCase {
         measure(metrics: [XCTMemoryMetric.init(), XCTClockMetric.init()]) {
             for _ in 0...100 {
                 do {
-                    _ = try app.performTest(request: XCTHTTPRequest.make(with: .GET, path: "test-plot"))
+                    _ = try app.performTest(request: XCTHTTPRequest.make(with: .GET, path: "hello-plot"))
                 } catch {
                     XCTFail(error.localizedDescription)
                 }
