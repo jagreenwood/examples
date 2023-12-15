@@ -25,11 +25,23 @@ final class AppTests: XCTestCase {
         }
     }
 
-    func testPlot() async throws {
+    func testPlotComponent() async throws {
         measure(metrics: [XCTMemoryMetric.init(), XCTClockMetric.init()]) {
             for _ in 0...100 {
                 do {
-                    _ = try app.performTest(request: XCTHTTPRequest.make(with: .GET, path: "hello-plot"))
+                    _ = try app.performTest(request: XCTHTTPRequest.make(with: .GET, path: "hello-plot-component"))
+                } catch {
+                    XCTFail(error.localizedDescription)
+                }
+            }
+        }
+    }
+
+    func testPlotNode() async throws {
+        measure(metrics: [XCTMemoryMetric.init(), XCTClockMetric.init()]) {
+            for _ in 0...100 {
+                do {
+                    _ = try app.performTest(request: XCTHTTPRequest.make(with: .GET, path: "hello-plot-node"))
                 } catch {
                     XCTFail(error.localizedDescription)
                 }

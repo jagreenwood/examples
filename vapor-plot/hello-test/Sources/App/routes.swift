@@ -2,8 +2,11 @@ import Vapor
 
 func routes(_ app: Application) throws {
 
-    app.get("hello-plot") { req async -> Page in
+    app.get("hello-plot-component") { req async -> Page in
         Hello(count: 1000)
+    }
+    app.get("hello-plot-node") { req async -> Page in
+        HelloNode(count: 1000)
     }
 
     let count = Array<Int>.sequential(count: 1000)

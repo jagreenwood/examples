@@ -17,7 +17,7 @@ class Page {
         )
     }
 
-    final func body() -> Node<HTML.DocumentContext> {
+    func body() -> Node<HTML.DocumentContext> {
         .body(
             .component(content())
         )
